@@ -14,21 +14,25 @@ def clean(){
 
 def dockerBuild() {
     exec {
-        commandLine 'sh', '-c', 'docker build -t gradledockertest:latest ./clonedRepo/AWS-Task2/AWS_Download_S3'
+        commandLine 'sh', '-c', 'sudo docker build -t gradledockertest:latest ./clonedRepo/AWS-Task2/AWS_Download_S3'
     }
 }
 
 def dockerRun() {
     exec {
-        commandLine 'sh', '-c', 'docker run --name gradledocker gradledockertest:latest'
+        commandLine 'sh', '-c', 'sudo docker run --name gradledocker gradledockertest:latest'
     }
 }
 
 task buildWith {
 
     exec {
+        commandLine 'sh', '-c', 'rm -r /some/dir'
+    }
+
+    exec {
         workingDir '.'
-        commandLine 'sh', '-c', 'mkdir clonedRepo'
+        commandLine 'sh', '-c', 'mkdir -p clonedRepo'
     }
 
     exec {
