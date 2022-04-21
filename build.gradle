@@ -27,7 +27,7 @@ def dockerRun() {
 task buildWith {
 
     exec {
-        commandLine 'sh', '-c', 'rm -r /some/dir'
+        commandLine 'sh', '-c', 'rm -r /clonedRepo'
     }
 
     exec {
