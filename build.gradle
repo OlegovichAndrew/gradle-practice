@@ -26,17 +26,13 @@ def dockerRun() {
 
 task buildWith {
 
-    exec {
-        commandLine 'sh', '-c', 'rm -r /clonedRepo'
-    }
+//     exec {
+//         workingDir '.'
+//         commandLine 'sh', '-c', 'mkdir -p clonedRepo'
+//    }
 
     exec {
-        workingDir '.'
-        commandLine 'sh', '-c', 'mkdir -p clonedRepo'
-    }
-
-    exec {
-        workingDir './clonedRepo'
+//         workingDir './clonedRepo'
         commandLine 'sh', '-c', 'git clone https://github.com/OlegovichAndrew/AWS-Task2.git'
     }
 
