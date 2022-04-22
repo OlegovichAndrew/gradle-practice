@@ -18,11 +18,11 @@ def dockerBuild() {
     }
 }
 
-def gitClone() {
-    exec {
-        commandLine 'sh', '-c', 'git clone "${url}" "${folder}" 2>/dev/null && [ -d "${folder}" ]'
-    }
-}
+// def gitClone() {
+//     exec {
+//         commandLine 'sh', '-c', 'git clone "${url}" "${folder}" 2>/dev/null && [ -d "${folder}" ]'
+//     }
+// }
 
 
 def dockerRun() {
@@ -35,22 +35,17 @@ def folder = "AWS_Task2"
 
 task buildWith {
 
-//     exec {
-//         workingDir '.'
-//         commandLine 'sh', '-c', 'mkdir -p clonedRepo'
-//    }
+    exec {
+        workingDir '.'
+        commandLine 'sh', '-c', 'mkdir -p clonedRepo'
+   }
 
-//     exec {
-
-//         commandLine 'sh', '-c', 'git clone https://github.com/OlegovichAndrew/AWS-Task2.git'
-//         commandLine 'sh', '-c', '        if ! git clone "${url}" "${folder}" 2>/dev/null && [ -d "${folder}" ] ; then
-//                                              echo "Clone failed because the folder ${folder} exists"
-//                                          fi'
-//     }
-    if ! gitClone() ; then
-        echo "Clone failed because the folder ${folder} exists"
-    fi
-
+    exec {
+        commandLine 'sh', '-c', 'git clone https://github.com/OlegovichAndrew/AWS-Task2.git'
+    }
+//     if ! gitClone() ; then
+//         echo "Clone failed because the folder ${folder} exists"
+//     fi
 
     dockerBuild()
     dockerRun()
