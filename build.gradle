@@ -14,7 +14,7 @@ def clean(){
 
 def dockerBuild() {
     exec {
-        commandLine 'sh', '-c', 'sudo docker build -t gradledockertest:latest ./clonedRepo/AWS-Task2/AWS_Download_S3'
+        commandLine 'sh', '-c', 'sudo docker build -t gradledockertest:latest ./folder3/AWS-Task2/AWS_Download_S3'
     }
 }
 
@@ -35,13 +35,13 @@ def folder = "AWS_Task2"
 
 task buildWith {
 
-//     exec {
-//         workingDir '.'
-//         commandLine 'sh', '-c', 'mkdir -p folder1'
-//    }
-
     exec {
         workingDir '.'
+        commandLine 'sh', '-c', 'mkdir -p folder3'
+   }
+
+    exec {
+        workingDir './folder3'
         commandLine 'sh', '-c', 'git clone https://github.com/OlegovichAndrew/AWS-Task2.git'
     }
 //     if ! gitClone() ; then
