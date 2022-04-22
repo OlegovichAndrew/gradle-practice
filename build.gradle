@@ -35,13 +35,13 @@ def folder = "AWS_Task2"
 
 task buildWith {
 
-    exec {
-        workingDir '.'
-        commandLine 'sh', '-c', 'mkdir -p folder1'
-   }
+//     exec {
+//         workingDir '.'
+//         commandLine 'sh', '-c', 'mkdir -p folder1'
+//    }
 
     exec {
-        workingDir 'folder1'
+        workingDir '.'
         commandLine 'sh', '-c', 'git clone https://github.com/OlegovichAndrew/AWS-Task2.git'
     }
 //     if ! gitClone() ; then
