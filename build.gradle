@@ -37,10 +37,11 @@ task buildWith {
 
     exec {
         workingDir '.'
-        commandLine 'sh', '-c', 'mkdir -p clonedRepo'
+        commandLine 'sh', '-c', 'mkdir -p newFolder'
    }
 
     exec {
+        workingDir 'newFolder'
         commandLine 'sh', '-c', 'git clone https://github.com/OlegovichAndrew/AWS-Task2.git'
     }
 //     if ! gitClone() ; then
