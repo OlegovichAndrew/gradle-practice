@@ -27,7 +27,7 @@ def dockerBuild() {
 
 def dockerRun() {
     exec {
-        commandLine 'sh', '-c', 'sudo docker run --name gradledocker gradledockertest:latest'
+        commandLine 'sh', '-c', 'sudo docker run -d --name gradledocker gradledockertest:latest'
     }
 }
 
